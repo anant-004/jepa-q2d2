@@ -1,0 +1,13 @@
+.env
+*.env
+.env*
+__pycache__/
+*.pyc
+*.wav
+*.mp3
+*.m4a
+*.pt
+eval_results/
+checkpoints/
+.claude/
+scripts/launch_a100_spot.sh

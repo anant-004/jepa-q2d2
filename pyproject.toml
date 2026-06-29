@@ -1,0 +1,50 @@
+[project]
+name = "koe"
+version = "0.1.0"
+description = "KoeTTS: Autoregressive Speech LM on JEPA Neural Tokens"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "torchaudio>=2.1",
+    "numpy",
+]
+
+[project.optional-dependencies]
+train = [
+    "wandb",
+    "deepspeed>=0.14",
+    "muon-optimizer @ git+https://github.com/KellerJordan/Muon.git",
+]
+modal = [
+    "modal>=0.73",
+]
+qwen = [
+    "transformers>=4.40",
+    "accelerate",
+]
+eval = [
+    "pesq",
+    "pystoi",
+    "librosa",
+    "huggingface_hub",
+    "soundfile",
+]
+gcs = [
+    "google-cloud-storage",
+]
+perceptual = [
+    "transformers>=4.40",
+    "openai-whisper",
+    "jiwer",
+    "speechbrain",
+]
+all = [
+    "koe[train,modal,qwen,eval,gcs,perceptual]",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
